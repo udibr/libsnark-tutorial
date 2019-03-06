@@ -328,3 +328,4 @@ The libsnark zk-SNARK library is a powerful library for defining circuits, gener
   * `Preferences...->Build, Execution, Deployment->Deploymnent->Local container->Mapping->Deployment path` to `/home/debugger/code`
   * `Run->Debug...` look for `test` at the very bottom
   * output files can be found at `/home/debugger/code/cmake-build-debug-local-container/src/`
+* to switch curve edit line 7 in `./CMakeLists.txt` and rebuild CMake `Tools->CMake->Reset Cache and Reload Project`
