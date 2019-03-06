@@ -52,6 +52,7 @@ In order to download and build the repo:
 ```
 git clone https://github.com/christianlundkvist/libsnark-tutorial.git
 cd libsnark-tutorial
+git submodule update --init --recursive
 mkdir build && cd build && cmake ..
 make
 ```
@@ -312,3 +313,16 @@ The software library [ZoKrates](https://github.com/JacobEberhardt/ZoKrates) buil
 # Conclusion
 
 The libsnark zk-SNARK library is a powerful library for defining circuits, generating & verifying proofs, but it can be hard to get a sense of how to use it in practice. This tutorial aims to provide a sense of the high-level components of libsnark and how to use it concretely, as well as how to connect the proofs to Ethereum smart contracts.
+
+
+# Debugging on Docker with CLion
+* follow this (tutorial)[https://github.com/shuhaoliu/docker-clion-dev]
+* copy `docker-compose.yml`
+* run `docker-compose -d`
+* find running container `docker ps`
+* attach to running image `docker exec -it <container-id> /bin/bash`
+* Inside docker run `apt-get install build-essential cmake git libgmp3-dev python-markdown libboost-all-dev libssl-dev`
+* In CLion I had to configure:
+  * `Preferences...->Build, Execution, Deployment->CMake->Debug-Local container->CMake options` to `-DWITH_PROCPS=OFF`
+  * `Preferences...->Build, Execution, Deployment->Deploymnent->Local container->Mapping->Deployment path` to `/home/debugger/tmp`
+  * `Run->Debug...` look for `test` at the very bottom
