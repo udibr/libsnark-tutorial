@@ -82,8 +82,8 @@ int main()
 
   const r1cs_ppzksnark_verification_key<default_r1cs_ppzksnark_pp> vk = keypair.vk;
 
-  print_vk_to_file<default_r1cs_ppzksnark_pp>(vk, "../build/vk_data");
-  print_proof_to_file<default_r1cs_ppzksnark_pp>(proof, "../build/proof_data");
+  print_vk_to_file<default_r1cs_ppzksnark_pp>(vk, "vk_data");
+  print_proof_to_file<default_r1cs_ppzksnark_pp>(proof, "proof_data");
 
   return 0;
 }

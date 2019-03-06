@@ -316,13 +316,15 @@ The libsnark zk-SNARK library is a powerful library for defining circuits, gener
 
 
 # Debugging on Docker with CLion
-* follow this (tutorial)[https://github.com/shuhaoliu/docker-clion-dev]
-* copy `docker-compose.yml`
-* run `docker-compose -d`
+* `git submodule update --init --recursive`
+* follow this (tutorial)[https://github.com/shuhaoliu/docker-clion-dev] to create image `liuempire/docker_clion_dev`
+* `wget https://raw.githubusercontent.com/shuhaoliu/docker-clion-dev/master/docker-compose.yml .`
+* `docker-compose up -d`
 * find running container `docker ps`
 * attach to running image `docker exec -it <container-id> /bin/bash`
 * Inside docker run `apt-get install build-essential cmake git libgmp3-dev python-markdown libboost-all-dev libssl-dev`
 * In CLion I had to configure:
   * `Preferences...->Build, Execution, Deployment->CMake->Debug-Local container->CMake options` to `-DWITH_PROCPS=OFF`
-  * `Preferences...->Build, Execution, Deployment->Deploymnent->Local container->Mapping->Deployment path` to `/home/debugger/tmp`
+  * `Preferences...->Build, Execution, Deployment->Deploymnent->Local container->Mapping->Deployment path` to `/home/debugger/code`
   * `Run->Debug...` look for `test` at the very bottom
+  * output files can be found at `/home/debugger/code/cmake-build-debug-local-container/src/`
